@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chillar</title>
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <link rel="stylesheet" type="text/css" href="assets/styles.css">
+
+</head>
+
+<body>
+
+  <header class="header">
+    <h1 class="header__title">Chillar</h1>
+    <button id="butRefresh" class="headerButton" aria-label="Refresh"></button>
+  </header>
+
+  <main class="main" hidden>
+    <div class="card btc-card">
+      <h4>1 BTC</h4>
+      <div class="result">
+        <span id="curr">122</span> Rupees</div>
+      <div class="stats">Last updated:
+        <span id="last-update">hahaha</span>
+      </div>
+    </div>
+  </main>
+
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+  <div class="no-network">
+    <img id="no-network-img" src="images/no-nw.png" alt="no-network">
+  </div>
+
+  <script src="assets/app.js" async></script>
+
+</body>
+
+</html>
