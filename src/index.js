@@ -25,6 +25,7 @@
       console.log(rate, updated);
       app.updatePrice(rate, updated);
     } catch (e) {
+      console.error(e);
       app.spinner.setAttribute("hidden", true);
       app.error.style.display = "flex";
     }
