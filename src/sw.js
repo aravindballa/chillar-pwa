@@ -1,9 +1,6 @@
-// import { precacheAndRoute } from "workbox-precaching";
 import * as navigationPreload from "workbox-navigation-preload";
 import { registerRoute, NavigationRoute } from "workbox-routing";
 import { CacheFirst, NetworkOnly } from "workbox-strategies";
-
-// precacheAndRoute(self.__WB_MANIFEST);
 
 registerRoute(
   new RegExp("\\.(png|jpg|jpeg|svg)$"),
@@ -26,6 +23,9 @@ registerRoute(
 //   })
 // );
 
+/**
+ * Routes (or HTML files) need to be cached by handling the navigation
+ */
 const CACHE_NAME = "html";
 const FALLBACK_HTML_URL = "./index.html"; // Fallback is also main page
 
@@ -50,5 +50,5 @@ const navigationHandler = async (params) => {
   }
 };
 
-// Register this strategy to handle all navigations.
+// Register this strategy to handle navigations.
 registerRoute(new NavigationRoute(navigationHandler));
