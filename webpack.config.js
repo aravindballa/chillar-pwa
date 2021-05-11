@@ -51,7 +51,7 @@ module.exports = {
     // }),
     new WorkboxPlugin.InjectManifest({
       swSrc: "./src/sw.js",
-      swDest: "./dist/serviceworker.js",
+      swDest: "service-worker.js",
     }),
   ],
 };
