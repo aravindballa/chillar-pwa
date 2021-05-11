@@ -12,7 +12,7 @@ registerRoute(
 registerRoute(
   ({ request }) =>
     request.destination === "script" || request.destination === "style",
-  new Cas({
+  new CacheFirst({
     cacheName: "static-resources",
   })
 );
