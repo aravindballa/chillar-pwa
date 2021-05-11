@@ -27,7 +27,7 @@ registerRoute(
 // );
 
 const CACHE_NAME = "html";
-const FALLBACK_HTML_URL = "/fallback.html"; // Fallback is also main page
+const FALLBACK_HTML_URL = "./fallback.html"; // Fallback is also main page
 
 self.addEventListener("install", async (event) => {
   event.waitUntil(
