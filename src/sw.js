@@ -1,5 +1,6 @@
 // import { precacheAndRoute } from "workbox-precaching";
-import { registerRoute } from "workbox-routing";
+import * as navigationPreload from "workbox-navigation-preload";
+import { registerRoute, NavigationRoute } from "workbox-routing";
 import { CacheFirst, NetworkOnly } from "workbox-strategies";
 
 // precacheAndRoute(self.__WB_MANIFEST);
