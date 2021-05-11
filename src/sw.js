@@ -1,19 +1,20 @@
+import { precacheAndRoute, createHandlerBoundToURL } from "workbox-precaching";
 import * as navigationPreload from "workbox-navigation-preload";
 import { registerRoute, NavigationRoute } from "workbox-routing";
 import { CacheFirst, NetworkOnly } from "workbox-strategies";
 
-registerRoute(
-  new RegExp("\\.(png|jpg|jpeg|svg)$"),
-  new CacheFirst({ cacheName: "images" })
-);
+// registerRoute(
+//   new RegExp("\\.(png|jpg|jpeg|svg)$"),
+//   new CacheFirst({ cacheName: "images" })
+// );
 
-registerRoute(
-  ({ request }) =>
-    request.destination === "script" || request.destination === "style",
-  new CacheFirst({
-    cacheName: "static-resources",
-  })
-);
+// registerRoute(
+//   ({ request }) =>
+//     request.destination === "script" || request.destination === "style",
+//   new CacheFirst({
+//     cacheName: "static-resources",
+//   })
+// );
 
 // Doesn't seem to work
 // registerRoute(
@@ -26,29 +27,32 @@ registerRoute(
 /**
  * Routes (or HTML files) need to be cached by handling the navigation
  */
-const CACHE_NAME = "html";
-const FALLBACK_HTML_URL = "./index.html"; // Fallback is also main page
+// const CACHE_NAME = "html";
+// const FALLBACK_HTML_URL = "./index.html"; // Fallback is also main page
 
-self.addEventListener("install", async (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.add(FALLBACK_HTML_URL))
-  );
-});
+// self.addEventListener("install", async (event) => {
+//   event.waitUntil(
+//     caches.open(CACHE_NAME).then((cache) => cache.add(FALLBACK_HTML_URL))
+//   );
+// });
 
-navigationPreload.enable();
+// navigationPreload.enable();
 
-const networkOnly = new NetworkOnly();
-const navigationHandler = async (params) => {
-  try {
-    // Attempt a network request.
-    return await networkOnly.handle(params);
-  } catch (error) {
-    // If it fails, return the cached HTML.
-    return caches.match(FALLBACK_HTML_URL, {
-      cacheName: CACHE_NAME,
-    });
-  }
-};
+// const networkOnly = new NetworkOnly();
+// const navigationHandler = async (params) => {
+//   try {
+//     // Attempt a network request.
+//     return await networkOnly.handle(params);
+//   } catch (error) {
+//     // If it fails, return the cached HTML.
+//     return caches.match(FALLBACK_HTML_URL, {
+//       cacheName: CACHE_NAME,
+//     });
+//   }
+// };
 
-// Register this strategy to handle navigations.
-registerRoute(new NavigationRoute(navigationHandler));
+// // Register this strategy to handle navigations.
+// registerRoute(new NavigationRoute(navigationHandler));
+
+precacheAndRoute(self.__WB_MANIFEST);
+registerRoute(new NavigationRoute(createHandlerBoundToURL("/index.html")));
