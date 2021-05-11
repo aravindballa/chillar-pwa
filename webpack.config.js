@@ -1,7 +1,7 @@
 const WorkboxPlugin = require("workbox-webpack-plugin");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
 
   plugins: [
     // new WorkboxPlugin.GenerateSW({
