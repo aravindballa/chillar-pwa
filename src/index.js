@@ -16,7 +16,7 @@
     try {
       const {
         bpi: {
-          INR: { rate },
+          EUR: { rate },
         },
         time: { updated },
       } = await (
