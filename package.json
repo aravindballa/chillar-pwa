@@ -1,0 +1,27 @@
+{
+  "name": "chillar-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravindballa/chillar-pwa.git"
+  },
+  "keywords": [],
+  "author": "Aravind Balla <bsaaravind@gmail.com> (https://aravindballa.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aravindballa/chillar-pwa/issues"
+  },
+  "homepage": "https://github.com/aravindballa/chillar-pwa#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "workbox-webpack-plugin": "^6.1.5"
+  }
+}
